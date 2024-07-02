@@ -10,6 +10,7 @@ import Hadding from "../components/Hadding";
 import { FaSearch, FaUser, FaAngleDown, FaShoppingCart } from "react-icons/fa";
 import blank from "../assets/blnk.png";
 import { useSelector } from "react-redux";
+import Srce from "../components/Srce";
 
 const Naver = () => {
   const cartItem = useSelector((state) => state.carts.cart);
@@ -145,14 +146,7 @@ const Naver = () => {
             </div>
 
             <div className="w-1/2">
-              <div className="relative ml-4 ">
-                <input
-                  className="w-full py-5 pl-5"
-                  type="text"
-                  placeholder="Search Products"
-                />
-                <FaSearch className="absolute right-10 top-6" />
-              </div>
+            <Srce/>
             </div>
             <div className="flex justify-end w-1/5 gap-10">
               <Flex className="gap-1">
