@@ -11,15 +11,15 @@ const BannerTow = () => {
   return (
     <>
       <Container className="py-28">
-        <Flex className="gap-5">
-          <div className="w-1/2">
+        <Flex className="gap-5 flex-col md:flex-row ">
+          <div className="md:w-1/2 w-full">
             <Link>
               <Image className="w-full" src={lamp} alt="imgone" />
             </Link>
           </div>
 
-          <div className="w-1/2 ">
-            <Flex className="flex-wrap  gap-11">
+          <div className=" md:w-1/2 w-full ">
+            <Flex className="flex-wrap   flex-col md:flex-row gap-11">
               <Link>
                 <Image className="w-full" src={imgtow} alt="imgone" />
               </Link>

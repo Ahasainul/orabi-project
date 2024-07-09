@@ -32,7 +32,7 @@ const Arrivals = () => {
   };
   return (
     <>
-      <Container className='py-5'>
+      <Container className='py-5 hidden md:block'>
         <div className="mr-5">
           <Hadding className='font-dm font-bold text-5xl' hedText='New Arrivals' />
         </div>

@@ -26,6 +26,8 @@ const Srce = () => {
       faceData(sarcevalo);
     }
   };
+
+  
   const seaceClick = (id) =>{
 
     navigate(`proudct/${id}`)
@@ -33,17 +35,17 @@ const Srce = () => {
 
   return (
     <div>
-      <div className="relative ml-4 ">
+      <div className="relative ml-4  border md:border-none">
         <input
-          className="w-full py-5 pl-5"
+          className="w-full px-4  md:py-5 md:pl-5 py-2 "
           type="text"
           placeholder="Search Products"
           value={sarcevalo}
           onChange={(e) => handelSerce(e)}
         />
-        <FaSearch className="absolute right-10 top-6" />
+        <FaSearch className="absolute right-10 md:top-6 top-3" />
       </div>
-      <div className=" absolute bg-white left-[260px] w-[653px]  border shadow-lg mt-5">
+      <div className=" absolute bg-white left-[660px] w-[653px] top-[234px]  border shadow-lg mt-5">
         {loading
           ? "loding....."
           : products &&

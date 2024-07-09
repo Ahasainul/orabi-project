@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import Image from "../components/Image";
@@ -11,8 +11,11 @@ import { FaSearch, FaUser, FaAngleDown, FaShoppingCart } from "react-icons/fa";
 import blank from "../assets/blnk.png";
 import { useSelector } from "react-redux";
 import Srce from "../components/Srce";
+import { FaBars } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 const Naver = () => {
+  let [show, setShow] = useState(false);
   const cartItem = useSelector((state) => state.carts.cart);
 
   let DropReef = useRef(null);
@@ -33,11 +36,63 @@ const Naver = () => {
       DropReeff.current.style.display = "block";
     }
   };
-
+  let handleClick = () => {
+    setShow(!show);
+  };
   return (
     <>
       <Container>
-        <div className="py-10">
+        {
+          <div className="md:hidden  py-4 px-5 flex justify-between z-50  relative ">
+            <Link>
+              {" "}
+              <Image src={logo} alt="logo.png" />
+            </Link>
+            <div className=" absolute right-4" onClick={handleClick}>
+              {show ? <ImCross /> : <FaBars />}
+            </div>
+            {show && (
+              <div className="absolute right-0 top-8">
+                <ul>
+                  <Flex className={"flex-col z-40 bg-teal-500  h-[1000px] w-[200px] items-center "}>
+                    <Link to="/">
+                      <List
+                        className="md:mr-10 text-lg font-dm text-white hover:text-black hover:font-bold"
+                        manuName="Home"
+                      />
+                    </Link>
+                    <Link to="shop/">
+                      <List
+                        className="md:mr-10 text-lg font-dm text-white hover:text-black hover:font-bold"
+                        manuName="Shop"
+                      />
+                    </Link>
+                    <Link to="about/">
+                      <List
+                        className="md:mr-10 text-lg font-dm text-white hover:text-black hover:font-bold"
+                        manuName="About"
+                      />
+                    </Link>
+                    <Link to="Contacts/">
+                      <List
+                        className="md:mr-10 text-lg font-dm text-white hover:text-black hover:font-bold"
+                        manuName="Contacts"
+                      />
+                    </Link>
+                    <Link to="/">
+                      <List
+                        className="text-lg font-dm md:mr-10 text-white hover:text-black hover:font-bold"
+                        manuName="Journal"
+                      />
+                    </Link>
+                  </Flex>
+                </ul>
+              </div>
+            )}
+          </div>
+        }
+
+        <div className="py-10 hidden  md:block">
           <Flex>
             <div className="w-2/5">
               <Link>
@@ -84,13 +139,16 @@ const Naver = () => {
           </Flex>
         </div>
       </Container>
-      <div className="py-10 border bg-navBg border-borDer">
+      <div className="w-3/4 mx-auto md:hidden block">
+              <Srce className={"-z-20 py-0"} />
+            </div>
+      <div className="py-10  border hidden md:block bg-navBg border-borDer">
         <Container>
-          <Flex className="items-center">
+          <Flex className="items-center ">
             <div className="w-1/4">
               <div onClick={handelclick}>
-                <div className="relative flex items-center gap-2 ">
-                  <button>
+                <div className="relative flex items-center gap-2  ">
+                  <button className="">
                     {" "}
                     <Icons />
                   </button>
@@ -146,7 +204,7 @@ const Naver = () => {
             </div>
 
             <div className="w-1/2">
-            <Srce/>
+              <Srce className={"-z-20"} />
             </div>
             <div className="flex justify-end w-1/5 gap-10">
               <Flex className="gap-1">
@@ -176,7 +234,6 @@ const Naver = () => {
                         </Flex>
                       </>
                     ))}
-
                   </div>
 
                   <div className="px-5 py-5 bg-white">
